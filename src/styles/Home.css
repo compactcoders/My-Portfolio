@@ -1,0 +1,145 @@
+body {
+  margin: 0; /* 👈 Remove default body margin */
+  overflow-x: hidden; /* 👈 Prevent horizontal scroll globally */
+}
+
+/* Home Section */
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden; /* 👈 stop horizontal overflow */
+}
+
+/* Overlay Box */
+.overlay {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 3rem;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  align-self: center; /* 👈 keep it vertically centered */
+}
+
+
+/* Main Heading */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1f2937; /* dark gray */
+}
+
+/* Subheading */
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  font-weight: 600;
+  color: #374151;
+}
+
+.animated-role {
+  color: #facc15; /* golden yellow */
+  font-weight: 700;
+}
+
+/* Description Text */
+p {
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  color: #4b5563; /* medium gray */
+  font-size: 1.2rem;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  font-size: 2.5rem;
+  color: #1f2937; /* dark gray */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #3b82f6; /* blue on hover */
+  transform: scale(1.2);
+}
+
+/* ✅ Responsive Breakpoints */
+
+/* Tablets (medium screens) */
+@media (max-width: 1024px) {
+  .overlay {
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+  .social-icons a {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile (small screens) */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 1.5rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .social-icons a {
+    font-size: 2rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+  .social-icons {
+    gap: 1rem;
+  }
+  .social-icons a {
+    font-size: 1.8rem;
+  }
+}

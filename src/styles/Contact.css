@@ -1,0 +1,86 @@
+
+.contact-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contact-card {
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.form-section h2 {
+  font-size: 28px;
+  color: #3d1a54;
+  margin-bottom: 20px;
+}
+
+.contact-form .input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.contact-form .input-box input,
+.contact-form .input-box textarea {
+  width: 100%;
+  padding: 12px 40px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #f2f2f2;
+  font-size: 16px;
+  color: #333;
+  resize: none;
+}
+
+.contact-form .input-box .icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #6a1b9a; /* Deep Purple */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #4a148c;
+}
+
+.illustration-section {
+  flex: 1;
+  background-color: #eee6f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.illustration-section img {
+  max-width: 100%;
+  height: auto;
+}

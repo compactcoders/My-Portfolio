@@ -1,0 +1,94 @@
+.highlights-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 30px;
+  backdrop-filter: brightness(0.9);
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+}
+
+.highlight-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #d0baff;
+  margin-bottom: 50px;
+  animation: flicker 2s infinite;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #a866f8;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 0 25px rgba(168, 102, 248, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.highlight-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(208, 186, 255, 0.6);
+}
+
+.highlight-card h2 {
+  font-size: 1.4rem;
+  color: #d0baff;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #a866f8;
+  padding-bottom: 5px;
+}
+
+.highlight-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlight-card li {
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #7e3ff2;
+  transition: background 0.3s;
+}
+
+.highlight-card li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.highlight-card h3 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.highlight-card span {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  color: #ccc;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.highlight-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.highlight-card li:hover .highlight-image {
+  transform: scale(1.05);
+}
