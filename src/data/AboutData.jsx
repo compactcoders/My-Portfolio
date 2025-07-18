@@ -1,6 +1,6 @@
 // src/data/AboutData.jsx
 
-import profileImage from "../assets/Mypic/renu.jpg";
+import profileImage from "../assets/Mypic/renu.JPG";
 import htmlIcon from "../assets/skills/html.png";
 import cIcon from "../assets/skills/c.png";  // same icon for placeholders
 import javaIcon from "../assets/skills/java.png"; 
