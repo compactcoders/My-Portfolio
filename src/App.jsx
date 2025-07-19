@@ -1,13 +1,20 @@
 import React, { useEffect, useRef } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "../src/components/Navbar";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "../src/pages/Home";
-import About from "../src/pages/About";
-import Highlights from "../src/pages/Highlights";
-import Projects from "../src/pages/Projects";
-import Resume from "../src/pages/Resume";
-import Contact from "../src/pages/Contact";
+import HomePage from "./pages/HomePage";
+
+function ScrollToSection() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sectionId = location.pathname.slice(1) || "home"; // default to #home
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   const audioRef = useRef();
@@ -23,24 +30,15 @@ function App() {
     };
 
     window.addEventListener("click", enableAudio);
-
     return () => window.removeEventListener("click", enableAudio);
   }, []);
 
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/highlights" element={<Highlights />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <ScrollToSection />
+      <HomePage />
       <Footer />
-
-      {/* 🔊 Background music with sound enabled after first click */}
       <audio ref={audioRef} loop>
         <source src="/background.mp3" type="audio/mp3" />
         Your browser does not support the audio element.

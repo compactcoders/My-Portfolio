@@ -1,14 +1,15 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const audioRef = useRef(null);
+  const location = useLocation();
 
   const playClickSound = () => {
     if (audioRef.current) {
-      audioRef.current.currentTime = 0; // restart sound if clicked rapidly
+      audioRef.current.currentTime = 0;
       audioRef.current.play();
     }
   };
@@ -23,9 +24,22 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const scrollTo = (path) => {
+    if (location.pathname !== path) {
+      window.history.pushState({}, "", path); // manually update URL
+    }
+
+    const id = path === "/" ? "home" : path.slice(1); // "/about" → "about"
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    closeMenu();
+  };
+
   return (
     <header className="navbar">
-      {/* Audio Element */}
+      {/* 🔊 Click Sound */}
       <audio ref={audioRef} src="/button.mp3" preload="auto" />
 
       <div className="navbar-logo">
@@ -33,12 +47,12 @@ const Navbar = () => {
       </div>
 
       <nav className={`navbar-links ${isOpen ? "open" : ""}`}>
-        <Link to="/" onClick={closeMenu}>Home</Link>
-        <Link to="/about" onClick={closeMenu}>About</Link>
-        <Link to="/highlights" onClick={closeMenu}>Highlights</Link>
-        <Link to="/projects" onClick={closeMenu}>Projects</Link>
-        <Link to="/resume" onClick={closeMenu}>Resume</Link>
-        <Link to="/contact" onClick={closeMenu}>Contact</Link>
+        <button onClick={() => scrollTo("/")}>Home</button>
+        <button onClick={() => scrollTo("/about")}>About</button>
+        <button onClick={() => scrollTo("/highlights")}>Highlights</button>
+        <button onClick={() => scrollTo("/projects")}>Projects</button>
+        <button onClick={() => scrollTo("/resume")}>Resume</button>
+        <button onClick={() => scrollTo("/contact")}>Contact</button>
       </nav>
 
       <div
