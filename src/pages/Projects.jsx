@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../styles/Projects.css";
 import ProjectData from "../data/ProjectsData";
 
 const Projects = () => {
+  const audioRef = useRef(new Audio("/card.mp3"));
+
+  const playCardSound = () => {
+    const audio = audioRef.current;
+    audio.currentTime = 0;
+    audio.play();
+  };
+
   return (
     <div className="projects-section">
       <h1 className="section-title">Projects</h1>
       <div className="flip-card-grid">
         {ProjectData.map((project, index) => (
-          <div className="flip-card" key={index}>
+          <div className="flip-card" key={index} onMouseEnter={playCardSound}>
             <div className="flip-card-inner">
               <div className="flip-card-front">
                 <img src={project.thumbnail} alt={project.title} />
@@ -23,8 +31,12 @@ const Projects = () => {
                   ))}
                 </ul>
                 <div className="project-links">
-                  {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>}
-                  {project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Demo</a>}
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
+                  )}
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noreferrer">Demo</a>
+                  )}
                 </div>
               </div>
             </div>

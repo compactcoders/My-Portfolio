@@ -11,3 +11,6 @@ body {
   overflow-x: hidden;
   overflow-y: hidden; /* Prevent horizontal scroll */
 }
+audio {
+  display: none;
+}
